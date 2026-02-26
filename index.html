@@ -249,6 +249,15 @@
             transition:all .25s; box-shadow:0 2px 8px rgba(13,79,110,.2);
         }
         .btn-trial:hover { opacity:.88; transform:translateY(-2px); box-shadow:0 5px 15px rgba(13,79,110,.3); }
+        .btn-admin {
+            display:inline-flex; align-items:center; gap:.4rem;
+            background:linear-gradient(135deg,#1e3a5f,#0a1628);
+            color:#fcd34d; padding:.55rem 1.1rem; border-radius:8px;
+            font-weight:700; font-size:.82rem; text-decoration:none;
+            font-family:'Cairo',sans-serif; white-space:nowrap;
+            transition:all .25s; box-shadow:0 2px 8px rgba(10,22,40,.3);
+        }
+        .btn-admin:hover { opacity:.88; transform:translateY(-2px); box-shadow:0 5px 15px rgba(10,22,40,.4); }
         .app-btn {
             display:inline-flex; align-items:center; gap:.4rem;
             color:var(--text-light); font-weight:600; font-size:.82rem;
@@ -581,7 +590,7 @@
             .stat-item { border-bottom:1px solid rgba(255,255,255,.15) !important; }
             .stat-item:last-child { border-bottom:none !important; }
             .app-card-footer { flex-direction:column; gap:.5rem; }
-            .btn-trial, .app-btn { width:100%; justify-content:center; }
+            .btn-trial, .btn-admin, .app-btn { width:100%; justify-content:center; }
             .contact-item { padding:.75rem 1rem; }
             .ci-value { font-size:.85rem; }
         }
@@ -764,7 +773,11 @@
             </div>
             <div class="app-card-footer">
                 <a href="https://desire.free.nf/employee.html" class="btn-trial" target="_blank">
-                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                    <i class="fas fa-user-clock"></i> تسجيل الحضور والانصراف
+                </a>
+                <!-- أضف رابط لوحة تحكم المدير هنا بدل الـ # -->
+                <a href="#" class="btn-admin" target="_blank">
+                    <i class="fas fa-shield-alt"></i> لوحة تحكم المدير
                 </a>
                 <a href="https://wa.me/966575182960?text=أريد الاستفسار عن نظام إدارة الأمن والحراسة"
                    class="app-btn" target="_blank">
