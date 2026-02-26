@@ -210,20 +210,20 @@
         .app-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:#c8e8f5; }
 
         .app-num {
-            position:absolute; top:1.3rem; left:1.5rem;
-            font-size:.72rem; font-weight:800; color:var(--text-light);
-            opacity:.35; letter-spacing:.5px;
+            position:absolute; top:1rem; left:1rem; z-index:2;
+            font-size:.68rem; font-weight:800; color:#fff;
+            letter-spacing:.5px;
+            background:rgba(0,0,0,.28); padding:.15rem .55rem; border-radius:20px;
         }
-        .app-icon {
-            width:64px; height:64px; border-radius:16px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1.9rem; margin-bottom:1.25rem; margin-top:.3rem;
+        .app-card-img {
+            width:100%; height:158px;
+            border-radius:12px; overflow:hidden;
+            margin-bottom:1.1rem; margin-top:.2rem;
+            flex-shrink:0; display:block;
         }
-        .ic-1 { background:#e8f4fd; color:#0d6e9a; }
-        .ic-2 { background:#e8f9f2; color:#1a7a5e; }
-        .ic-3 { background:#fef4e4; color:#c97a0d; }
-        .ic-4 { background:#f3ecfd; color:#5c2d9a; }
-        .ic-5 { background:#e0f7f7; color:#0d6e6e; }
+        .app-card-img svg { width:100%; height:100%; display:block; }
+        @media(max-width:768px) { .app-card-img { height:135px; } }
+        .app-icon { display:none; }
 
         .app-name { font-size:1.15rem; font-weight:800; color:var(--text-dark); margin-bottom:.55rem; }
         .app-desc { font-size:.875rem; color:var(--text-light); line-height:1.85; margin-bottom:1.25rem; }
@@ -672,7 +672,31 @@
         <div class="app-card reveal">
             <div class="app-card-bar bar-blue"></div>
             <span class="app-num">01</span>
-            <div class="app-icon ic-1"><i class="fas fa-hospital-alt"></i></div>
+            <div class="app-card-img">
+<svg viewBox="0 0 320 158" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="med-bg" x1="0" y1="0" x2="320" y2="158" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#7dd3fc"/></linearGradient></defs><rect width="320" height="158" fill="url(#med-bg)"/>
+<!-- pharmacy shelf --><rect x="18" y="20" width="62" height="118" rx="5" fill="#bfdbfe" opacity="0.5"/><rect x="24" y="40" width="50" height="5" fill="#3b82f6" opacity="0.5"/><rect x="24" y="62" width="50" height="5" fill="#3b82f6" opacity="0.5"/><rect x="24" y="84" width="50" height="5" fill="#3b82f6" opacity="0.5"/>
+<rect x="27" y="26" width="11" height="13" rx="2" fill="#1d4ed8"/><rect x="41" y="28" width="9" height="11" rx="2" fill="#16a34a"/><rect x="53" y="27" width="11" height="12" rx="2" fill="#d97706"/>
+<rect x="27" y="47" width="13" height="10" rx="2" fill="#16a34a"/><rect x="43" y="47" width="11" height="10" rx="2" fill="#1d4ed8"/>
+<rect x="27" y="69" width="9" height="10" rx="2" fill="#dc2626"/><rect x="39" y="69" width="13" height="10" rx="2" fill="#1d4ed8"/>
+<!-- child head --><circle cx="162" cy="57" r="25" fill="#FDBCB4"/>
+<!-- hair pigtails --><path d="M137 53 Q141 24 162 24 Q183 24 187 53Z" fill="#92400e"/><circle cx="137" cy="57" r="9" fill="#92400e"/><circle cx="187" cy="57" r="9" fill="#92400e"/>
+<circle cx="131" cy="63" r="5.5" fill="#e91e63" opacity="0.8"/><circle cx="193" cy="63" r="5.5" fill="#e91e63" opacity="0.8"/>
+<!-- face --><circle cx="154" cy="55" r="3.2" fill="#1f2937"/><circle cx="170" cy="55" r="3.2" fill="#1f2937"/><circle cx="155.5" cy="53.5" r="1.1" fill="#fff"/><circle cx="171.5" cy="53.5" r="1.1" fill="#fff"/>
+<path d="M154 66 Q162 75 170 66" stroke="#b45309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="147" cy="62" r="6.5" fill="#f9a8d4" opacity="0.5"/><circle cx="177" cy="62" r="6.5" fill="#f9a8d4" opacity="0.5"/>
+<!-- body --><path d="M139 82 Q131 86 128 132 L196 132 Q193 86 185 82Z" fill="#38bdf8"/>
+<path d="M151 82 L162 97 L173 82" fill="#e0f2fe" opacity="0.7"/>
+<!-- left arm → apple --><path d="M131 89 Q107 99 102 112" stroke="#38bdf8" stroke-width="14" fill="none" stroke-linecap="round"/>
+<circle cx="101" cy="117" r="14" fill="#ef4444"/><path d="M101 103 C98 95 108 93 101 103" fill="#16a34a"/><ellipse cx="106" cy="99" rx="4.5" ry="2.8" fill="#16a34a" transform="rotate(-30 106 99)"/>
+<!-- right arm → med box --><path d="M193 89 Q213 99 218 107" stroke="#38bdf8" stroke-width="14" fill="none" stroke-linecap="round"/>
+<rect x="216" y="90" width="50" height="38" rx="7" fill="#fff" stroke="#1d4ed8" stroke-width="2.5"/>
+<path d="M226 93 Q241 83 256 93" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+<rect x="232" y="101" width="16" height="6" rx="3" fill="#dc2626"/><rect x="237" y="96" width="6" height="16" rx="3" fill="#dc2626"/>
+<!-- legs --><rect x="147" y="130" width="14" height="26" rx="7" fill="#1e40af"/><rect x="165" y="130" width="14" height="26" rx="7" fill="#1e40af"/>
+<ellipse cx="154" cy="156" rx="10" ry="4.5" fill="#374151"/><ellipse cx="172" cy="156" rx="10" ry="4.5" fill="#374151"/>
+<!-- deco --><text x="272" y="50" font-size="22" fill="#1d4ed8" opacity="0.22" font-weight="bold">+</text><circle cx="292" cy="122" r="9" fill="#3b82f6" opacity="0.18"/><circle cx="282" cy="72" r="6" fill="#0ea5e9" opacity="0.22"/>
+</svg>
+            </div>
             <h3 class="app-name">إدارة المستودعات الطبية</h3>
             <p class="app-desc">
                 نظام متكامل لإدارة مخزون الأدوية والمستلزمات الطبية في المراكز الصحية
@@ -698,7 +722,36 @@
         <div class="app-card reveal">
             <div class="app-card-bar bar-green"></div>
             <span class="app-num">02</span>
-            <div class="app-icon ic-2"><i class="fas fa-user-shield"></i></div>
+            <div class="app-card-img">
+<svg viewBox="0 0 320 158" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sec-bg" x1="0" y1="0" x2="320" y2="158" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#0a1628"/></linearGradient><linearGradient id="sec-gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcd34d"/><stop offset="100%" stop-color="#d97706"/></linearGradient></defs><rect width="320" height="158" fill="url(#sec-bg)"/>
+<!-- building --><rect x="222" y="14" width="82" height="144" rx="3" fill="#1e3a5f" opacity="0.6"/>
+<rect x="232" y="26" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.45"/><rect x="254" y="26" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.45"/><rect x="276" y="26" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.45"/>
+<rect x="232" y="50" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.3"/><rect x="254" y="50" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.3"/><rect x="276" y="50" width="14" height="14" rx="2" fill="#60a5fa" opacity="0.3"/>
+<rect x="244" y="96" width="22" height="62" rx="2" fill="#152943"/>
+<!-- female guard head --><circle cx="140" cy="50" r="24" fill="#FDBCB4"/>
+<!-- elegant updo --><path d="M116 46 Q120 20 140 20 Q160 20 164 46Z" fill="#1f1109"/><ellipse cx="140" cy="27" rx="16" ry="12" fill="#2d1810"/><circle cx="140" cy="22" r="10" fill="#2d1810"/>
+<!-- face --><ellipse cx="132" cy="48" rx="3" ry="3.5" fill="#1f2937"/><ellipse cx="148" cy="48" rx="3" ry="3.5" fill="#1f2937"/>
+<path d="M133 58 Q140 65 147 58" stroke="#c2410c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="125" cy="54" r="5.5" fill="#f9a8d4" opacity="0.4"/><circle cx="155" cy="54" r="5.5" fill="#f9a8d4" opacity="0.4"/>
+<!-- uniform jacket --><path d="M116 73 L106 158 L174 158 L164 73Z" fill="#1e3a5f"/>
+<path d="M127 73 L140 92 L127 120" fill="#2563eb" opacity="0.35"/>
+<path d="M153 73 L140 92 L153 120" fill="#2563eb" opacity="0.35"/>
+<!-- badge (shield) --><path d="M130 89 L140 84 L150 89 L150 105 L140 110 L130 105Z" fill="url(#sec-gd)"/>
+<circle cx="140" cy="96" r="5.5" fill="#1e3a5f"/>
+<text x="136.5" y="100" font-size="7.5" fill="#fcd34d" font-weight="bold">★</text>
+<!-- belt --><rect x="108" y="135" width="64" height="8" rx="3" fill="url(#sec-gd)" opacity="0.75"/>
+<!-- epaulettes --><rect x="108" y="74" width="20" height="8" rx="4" fill="url(#sec-gd)"/><rect x="152" y="74" width="20" height="8" rx="4" fill="url(#sec-gd)"/>
+<!-- left arm + walkie-talkie --><path d="M109 79 Q86 97 83 118" stroke="#1e3a5f" stroke-width="16" fill="none" stroke-linecap="round"/>
+<rect x="70" y="113" width="16" height="28" rx="4" fill="#374151"/><rect x="75" y="107" width="4" height="8" rx="2" fill="#374151"/>
+<circle cx="78" cy="116" r="4" fill="#60a5fa"/><rect x="72" y="124" width="12" height="2" rx="1" fill="#6b7280"/><rect x="72" y="129" width="12" height="2" rx="1" fill="#6b7280"/>
+<!-- right arm --><path d="M169 79 Q190 87 195 98" stroke="#1e3a5f" stroke-width="16" fill="none" stroke-linecap="round"/>
+<circle cx="198" cy="104" r="10" fill="#FDBCB4"/>
+<!-- pants --><path d="M109 145 L113 158 L167 158 L171 145Z" fill="#152943"/>
+<!-- floating shield --><path d="M27 18 L63 18 L63 60 Q63 82 45 93 Q27 82 27 60Z" fill="none" stroke="url(#sec-gd)" stroke-width="2" opacity="0.45"/>
+<text x="37" y="57" font-size="18" fill="#fcd34d" opacity="0.5">★</text>
+<text x="195" y="63" font-size="14" fill="#fcd34d" opacity="0.3">★</text>
+</svg>
+            </div>
             <h3 class="app-name">نظام إدارة ورقابة الأمن</h3>
             <p class="app-desc">
                 حل ذكي لمتابعة ورقابة فرق الأمن والحراسة في أماكن الدوام، مع إدارة
@@ -724,7 +777,39 @@
         <div class="app-card reveal">
             <div class="app-card-bar bar-orange"></div>
             <span class="app-num">03</span>
-            <div class="app-icon ic-3"><i class="fas fa-utensils"></i></div>
+            <div class="app-card-img">
+<svg viewBox="0 0 320 158" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rst-bg" x1="0" y1="0" x2="320" y2="158" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#fff7ed"/><stop offset="100%" stop-color="#fed7aa"/></linearGradient></defs><rect width="320" height="158" fill="url(#rst-bg)"/>
+<!-- counter --><rect x="0" y="115" width="320" height="43" rx="0" fill="#fdba74" opacity="0.4"/>
+<rect x="10" y="93" width="42" height="27" rx="5" fill="#fb923c" opacity="0.4"/>
+<rect x="62" y="82" width="42" height="38" rx="5" fill="#fb923c" opacity="0.4"/>
+<path d="M76 78 Q79 67 76 55" stroke="#fb923c" stroke-width="2.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+<path d="M84 77 Q87 64 84 52" stroke="#fb923c" stroke-width="2.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+<!-- chef hat --><rect x="126" y="16" width="50" height="33" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+<ellipse cx="151" cy="18" rx="28" ry="7" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+<!-- head --><circle cx="151" cy="61" r="25" fill="#FDBCB4"/>
+<!-- face --><ellipse cx="142" cy="59" rx="3.2" ry="3.5" fill="#1f2937"/><ellipse cx="160" cy="59" rx="3.2" ry="3.5" fill="#1f2937"/>
+<path d="M142 70 Q151 78 160 70" stroke="#92400e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M141 64 Q146 67 151 64 Q156 67 161 64" stroke="#7c2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="134" cy="65" r="6.5" fill="#fca5a5" opacity="0.5"/><circle cx="168" cy="65" r="6.5" fill="#fca5a5" opacity="0.5"/>
+<!-- body / apron --><path d="M128 86 L118 158 L184 158 L174 86Z" fill="#fff" stroke="#e5e7eb" stroke-width="2"/>
+<rect x="140" y="92" width="22" height="52" rx="3" fill="#fde68a" opacity="0.65"/>
+<rect x="132" y="89" width="38" height="21" rx="5" fill="#fde68a"/>
+<path d="M129 86 Q120 85 118 158" stroke="#0f766e" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.5"/>
+<path d="M173 86 Q182 85 184 158" stroke="#0f766e" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.5"/>
+<!-- left arm + plate --><path d="M120 92 Q97 103 91 121" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/>
+<ellipse cx="84" cy="127" rx="22" ry="7" fill="#fff" stroke="#e5e7eb" stroke-width="2"/>
+<ellipse cx="84" cy="121" rx="15" ry="5" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+<circle cx="80" cy="118" r="5.5" fill="#ef4444"/><circle cx="88" cy="115" r="4.5" fill="#22c55e"/><circle cx="85" cy="120" r="3.5" fill="#f59e0b"/>
+<path d="M78 110 Q81 101 78 93" stroke="#9ca3af" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+<path d="M88 109 Q91 100 88 92" stroke="#9ca3af" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+<!-- right arm + fork --><path d="M180 92 Q203 103 207 121" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/>
+<rect x="203" y="111" width="5" height="30" rx="2.5" fill="#9ca3af"/>
+<rect x="199" y="111" width="2.5" height="13" rx="1.2" fill="#9ca3af"/><rect x="211" y="111" width="2.5" height="13" rx="1.2" fill="#9ca3af"/>
+<!-- deco circles --><circle cx="255" cy="52" r="16" fill="#fb923c" opacity="0.18"/><circle cx="272" cy="103" r="10" fill="#fbbf24" opacity="0.2"/>
+<circle cx="240" cy="92" r="8" fill="#f87171" opacity="0.2"/>
+<circle cx="290" cy="55" r="8" fill="#f59e0b" opacity="0.18"/>
+</svg>
+            </div>
             <h3 class="app-name">مدير المطاعم والكافيهات</h3>
             <p class="app-desc">
                 نظام شامل يغطي إدارة الطلبات والمخزون والفواتير وإدارة الموظفين،
@@ -750,7 +835,38 @@
         <div class="app-card reveal">
             <div class="app-card-bar bar-purple"></div>
             <span class="app-num">04</span>
-            <div class="app-icon ic-4"><i class="fas fa-balance-scale"></i></div>
+            <div class="app-card-img">
+<svg viewBox="0 0 320 158" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="law-bg" x1="0" y1="0" x2="320" y2="158" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b0764"/><stop offset="100%" stop-color="#1e1b4b"/></linearGradient><linearGradient id="law-gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcd34d"/><stop offset="100%" stop-color="#d97706"/></linearGradient></defs><rect width="320" height="158" fill="url(#law-bg)"/>
+<!-- corner ornaments --><path d="M14 14 L54 14 L54 19 M14 14 L14 54 L19 54" stroke="#a78bfa" stroke-width="1.8" fill="none" opacity="0.45"/>
+<path d="M306 14 L266 14 L266 19 M306 14 L306 54 L301 54" stroke="#a78bfa" stroke-width="1.8" fill="none" opacity="0.45"/>
+<path d="M14 144 L54 144 L54 139 M14 144 L14 104 L19 104" stroke="#a78bfa" stroke-width="1.8" fill="none" opacity="0.45"/>
+<path d="M306 144 L266 144 L266 139 M306 144 L306 104 L301 104" stroke="#a78bfa" stroke-width="1.8" fill="none" opacity="0.45"/>
+<!-- outer rings --><circle cx="160" cy="76" r="64" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+<circle cx="160" cy="76" r="70" fill="none" stroke="#6d28d9" stroke-width="0.8" opacity="0.3"/>
+<!-- pillar --><rect x="158" y="28" width="4" height="78" rx="2" fill="url(#law-gd)"/>
+<!-- balance beam --><rect x="104" y="50" width="112" height="5" rx="2.5" fill="url(#law-gd)"/>
+<!-- top ornament --><circle cx="160" cy="27" r="8" fill="url(#law-gd)"/>
+<path d="M155 22 L160 10 L165 22Z" fill="url(#law-gd)"/>
+<!-- left chain + pan --><line x1="114" y1="54" x2="107" y2="76" stroke="#fcd34d" stroke-width="2" stroke-dasharray="4,2"/><line x1="107" y1="76" x2="107" y2="90" stroke="#fcd34d" stroke-width="2"/>
+<path d="M86 90 Q107 101 128 90" fill="none" stroke="url(#law-gd)" stroke-width="3"/>
+<ellipse cx="107" cy="92" rx="23" ry="6" fill="#4c1d95" stroke="url(#law-gd)" stroke-width="2.5"/>
+<text x="97" y="96" font-size="10" fill="#fcd34d" font-weight="bold" font-family="sans-serif">عدل</text>
+<!-- right chain + pan (lower) --><line x1="206" y1="54" x2="213" y2="70" stroke="#fcd34d" stroke-width="2" stroke-dasharray="4,2"/><line x1="213" y1="70" x2="213" y2="83" stroke="#fcd34d" stroke-width="2"/>
+<path d="M192 83 Q213 94 234 83" fill="none" stroke="url(#law-gd)" stroke-width="3"/>
+<ellipse cx="213" cy="85" rx="23" ry="6" fill="#4c1d95" stroke="url(#law-gd)" stroke-width="2.5"/>
+<text x="205" y="89" font-size="10" fill="#fcd34d" font-weight="bold" font-family="sans-serif">حق</text>
+<!-- base --><path d="M150 107 L155 117 L165 117 L170 107Z" fill="url(#law-gd)"/>
+<rect x="138" y="117" width="44" height="7" rx="3.5" fill="url(#law-gd)"/>
+<!-- laurel leaves --><path d="M118 127 Q108 116 103 104 Q114 108 118 122Z" fill="#5b21b6" stroke="#a78bfa" stroke-width="1" opacity="0.55"/>
+<path d="M108 124 Q98 113 96 100 Q107 105 110 120Z" fill="#5b21b6" stroke="#a78bfa" stroke-width="1" opacity="0.45"/>
+<path d="M202 127 Q212 116 217 104 Q206 108 202 122Z" fill="#5b21b6" stroke="#a78bfa" stroke-width="1" opacity="0.55"/>
+<path d="M212 124 Q222 113 224 100 Q213 105 210 120Z" fill="#5b21b6" stroke="#a78bfa" stroke-width="1" opacity="0.45"/>
+<!-- diamonds --><path d="M48 76 L52 68 L56 76 L52 84Z" fill="#a78bfa" opacity="0.65"/><path d="M264 76 L268 68 L272 76 L268 84Z" fill="#a78bfa" opacity="0.65"/>
+<text x="70" y="53" font-size="13" fill="#fcd34d" opacity="0.5">✦</text><text x="239" y="53" font-size="13" fill="#fcd34d" opacity="0.5">✦</text>
+<!-- bottom line + brand --><rect x="98" y="133" width="124" height="1.5" fill="url(#law-gd)" opacity="0.6"/>
+<text x="116" y="148" font-size="11" fill="#e9d5ff" font-family="Georgia,serif" opacity="0.85" letter-spacing="2">BADRIYA ISLAND</text>
+</svg>
+            </div>
             <h3 class="app-name">مدير مكاتب المحاماة الذكي</h3>
             <p class="app-desc">
                 نظام إدارة متكامل ومتخصص لمكاتب المحاماة، يشمل إدارة القضايا والموكلين
@@ -775,7 +891,47 @@
         <div class="app-card reveal">
             <div class="app-card-bar bar-teal"></div>
             <span class="app-num">05</span>
-            <div class="app-icon ic-5"><i class="fas fa-building"></i></div>
+            <div class="app-card-img">
+<svg viewBox="0 0 320 158" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fac-bg" x1="0" y1="0" x2="320" y2="158" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#e0f7f7"/><stop offset="100%" stop-color="#a5f3eb"/></linearGradient></defs><rect width="320" height="158" fill="url(#fac-bg)"/>
+<!-- buildings --><rect x="216" y="33" width="52" height="125" rx="3" fill="#0d6e6e" opacity="0.2"/>
+<rect x="237" y="18" width="27" height="140" rx="3" fill="#0d6e6e" opacity="0.18"/>
+<rect x="268" y="50" width="42" height="108" rx="3" fill="#0d6e6e" opacity="0.15"/>
+<rect x="221" y="44" width="11" height="11" rx="1.5" fill="#17a2b8" opacity="0.4"/><rect x="238" y="44" width="11" height="11" rx="1.5" fill="#17a2b8" opacity="0.4"/>
+<rect x="244" y="28" width="9" height="9" rx="1.5" fill="#17a2b8" opacity="0.35"/>
+<rect x="221" y="63" width="11" height="11" rx="1.5" fill="#17a2b8" opacity="0.3"/><rect x="238" y="63" width="11" height="11" rx="1.5" fill="#17a2b8" opacity="0.3"/>
+<!-- ground --><rect x="0" y="150" width="320" height="8" fill="#0d6e6e" opacity="0.18"/>
+<!-- hard hat --><ellipse cx="155" cy="30" rx="30" ry="11" fill="#f59e0b"/>
+<rect x="125" y="31" width="60" height="9" rx="3" fill="#f59e0b"/>
+<rect x="118" y="36" width="74" height="6" rx="3" fill="#d97706"/>
+<!-- head --><circle cx="155" cy="58" r="23" fill="#FDBCB4"/>
+<!-- safety glasses --><rect x="141" y="51" width="12" height="8" rx="3" fill="none" stroke="#374151" stroke-width="1.5" opacity="0.5"/><rect x="157" y="51" width="12" height="8" rx="3" fill="none" stroke="#374151" stroke-width="1.5" opacity="0.5"/><line x1="153" y1="55" x2="157" y2="55" stroke="#374151" stroke-width="1.5" opacity="0.5"/>
+<!-- face --><ellipse cx="147" cy="56" rx="2.8" ry="3" fill="#1f2937"/><ellipse cx="163" cy="56" rx="2.8" ry="3" fill="#1f2937"/>
+<path d="M147 66 Q155 73 163 66" stroke="#92400e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<!-- body + safety vest --><path d="M133 81 L124 158 L186 158 L177 81Z" fill="#1e40af"/>
+<path d="M135 81 L131 158 L144 158 L148 96 L162 96 L166 158 L179 158 L175 81Z" fill="#f59e0b" opacity="0.88"/>
+<!-- safety stripes --><rect x="126" y="112" width="58" height="5.5" rx="2.5" fill="#fff" opacity="0.7"/>
+<rect x="126" y="122" width="58" height="5.5" rx="2.5" fill="#fff" opacity="0.7"/>
+<!-- ID badge --><line x1="155" y1="82" x2="155" y2="96" stroke="#9ca3af" stroke-width="2"/>
+<rect x="143" y="96" width="24" height="17" rx="3" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="145" y="98" width="20" height="5" rx="1" fill="#1e40af"/>
+<rect x="145" y="105" width="13" height="2" rx="1" fill="#9ca3af"/><rect x="145" y="109" width="9" height="2" rx="1" fill="#9ca3af"/>
+<circle cx="161" cy="107" r="3.5" fill="#f59e0b" opacity="0.85"/>
+<!-- clip --><rect x="153" y="80" width="4" height="17" rx="2" fill="#9ca3af"/>
+<!-- left arm + clipboard --><path d="M125 86 Q102 97 96 117" stroke="#1e40af" stroke-width="15" fill="none" stroke-linecap="round"/>
+<rect x="80" y="112" width="30" height="38" rx="4" fill="#fff" stroke="#9ca3af" stroke-width="2"/>
+<rect x="88" y="107" width="13" height="9" rx="3" fill="#9ca3af"/>
+<rect x="84" y="120" width="20" height="2.5" rx="1" fill="#e5e7eb"/><rect x="84" y="126" width="20" height="2.5" rx="1" fill="#e5e7eb"/>
+<rect x="84" y="132" width="15" height="2.5" rx="1" fill="#e5e7eb"/><rect x="84" y="138" width="18" height="2.5" rx="1" fill="#e5e7eb"/>
+<!-- right arm --><path d="M183 86 Q203 90 212 102" stroke="#1e40af" stroke-width="15" fill="none" stroke-linecap="round"/>
+<circle cx="215" cy="107" r="10" fill="#FDBCB4"/>
+<!-- boots --><rect x="134" y="146" width="15" height="12" rx="5" fill="#1e3a5f"/><rect x="153" y="146" width="15" height="12" rx="5" fill="#1e3a5f"/>
+<ellipse cx="141" cy="157" rx="11" ry="4.5" fill="#374151"/><ellipse cx="160" cy="157" rx="11" ry="4.5" fill="#374151"/>
+<!-- gear deco --><circle cx="258" cy="90" r="11" fill="none" stroke="#0d6e6e" stroke-width="2.5" opacity="0.25"/>
+<circle cx="258" cy="90" r="6" fill="#0d6e6e" opacity="0.2"/>
+<circle cx="48" cy="55" r="9" fill="#17a2b8" opacity="0.2"/>
+<circle cx="30" cy="120" r="6" fill="#0d6e6e" opacity="0.18"/>
+</svg>
+            </div>
             <h3 class="app-name">إدارة المنشآت وشئون الموظفين</h3>
             <p class="app-desc">
                 نظام متكامل لإدارة المنشآت وشئون الموظفين، يشمل متابعة الحضور والغياب
