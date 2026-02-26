@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badriya Island | جزيرة بدرية - حلول تقنية ذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary:       #0d4f6e;
+            --primary-light: #1a7a9a;
+            --accent:        #2ca87f;
+            --accent-light:  #3ecf9b;
+            --text-dark:     #0f172a;
+            --text-medium:   #334155;
+            --text-light:    #64748b;
+            --bg-main:       #f7fbfc;
+            --bg-card:       #ffffff;
+            --border:        #e2edf0;
+            --shadow:        0 4px 6px -1px rgba(13,79,110,.08), 0 2px 4px -1px rgba(13,79,110,.05);
+            --shadow-lg:     0 10px 25px -5px rgba(13,79,110,.15), 0 4px 10px -5px rgba(13,79,110,.08);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-dark);
+            direction: rtl;
+        }
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+        nav {
+            position: sticky; top: 0; z-index: 200;
+            background: rgba(255,255,255,.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+            box-shadow: 0 1px 8px rgba(13,79,110,.07);
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: .8rem;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.25rem;
+        }
+        .nav-logo-text { font-weight: 800; font-size: 1.1rem; color: var(--primary); line-height: 1.2; }
+        .nav-logo-sub { font-size: .7rem; color: var(--text-light); font-weight: 500; }
+        .nav-links { display:flex; gap:1.75rem; list-style:none; }
+        .nav-links a {
+            text-decoration:none; color:var(--text-medium); font-weight:600; font-size:.9rem;
+            transition:color .2s; position:relative; padding-bottom:2px;
+        }
+        .nav-links a::after {
+            content:''; position:absolute; bottom:0; right:0;
+            width:0; height:2px; background:var(--primary-light);
+            transition:width .3s;
+        }
+        .nav-links a:hover { color:var(--primary); }
+        .nav-links a:hover::after { width:100%; }
+        .nav-cta {
+            background: var(--primary) !important; color:#fff !important;
+            padding:.5rem 1.3rem; border-radius:8px;
+        }
+        .nav-cta::after { display:none !important; }
+        .nav-cta:hover { background:var(--primary-light) !important; }
+        .nav-mobile-wa {
+            display:none; align-items:center; justify-content:center;
+            width:38px; height:38px; border-radius:50%;
+            background:#25d366; color:#fff; font-size:1.2rem;
+            text-decoration:none; transition:all .2s;
+        }
+        .nav-mobile-wa:hover { background:#1fad57; }
+        @media(max-width:768px) { .nav-mobile-wa { display:flex; } }
+
+        /* ==============================
+           HERO
+        ============================== */
+        .hero {
+            position: relative; overflow: hidden;
+            min-height: 92vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: #fff;
+            background: linear-gradient(160deg, #0a3347 0%, #0d5e7a 45%, #0d7a5e 100%);
+        }
+        /* island photo overlay placeholder */
+        .hero-bg {
+            position:absolute; inset:0;
+            background-image: url('island.jpg');
+            background-size:cover; background-position:center;
+            opacity:.22;
+        }
+        .hero-overlay {
+            position:absolute; inset:0;
+            background: linear-gradient(to top, rgba(10,51,71,.95) 0%, rgba(10,51,71,.4) 60%, transparent 100%);
+        }
+        /* animated waves */
+        .hero-waves {
+            position:absolute; bottom:0; left:0; right:0; height:120px;
+            overflow:hidden;
+        }
+        .hero-waves svg { position:absolute; bottom:0; width:100%; }
+        .wave1 { animation: wave 8s linear infinite; }
+        .wave2 { animation: wave 12s linear infinite reverse; opacity:.5; }
+        @keyframes wave {
+            0% { transform:translateX(0); }
+            50% { transform:translateX(-25%); }
+            100% { transform:translateX(0); }
+        }
+
+        .hero-content { position:relative; z-index:2; padding:2rem 1rem 9rem; max-width:800px; }
+        .hero-badge {
+            display:inline-flex; align-items:center; gap:.5rem;
+            background:rgba(255,255,255,.12);
+            border:1px solid rgba(255,255,255,.25);
+            padding:.45rem 1.3rem; border-radius:50px; font-size:.85rem;
+            margin-bottom:1.75rem; backdrop-filter:blur(6px);
+        }
+        .hero-badge-dot { width:8px; height:8px; border-radius:50%; background:#3ecf9b; animation:blink 2s ease-in-out infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+        .hero h1 { font-size:3.8rem; font-weight:900; line-height:1.15; margin-bottom:1.1rem; }
+        .hero h1 .brand { color:#7ee8c5; }
+        .hero h1 .tagline { display:block; font-size:1.6rem; font-weight:600; color:rgba(255,255,255,.85); margin-top:.4rem; }
+        .hero p { font-size:1.1rem; opacity:.82; line-height:1.9; max-width:580px; margin:0 auto 2.5rem; }
+
+        .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+        .btn-hero-primary {
+            background:#fff; color:var(--primary);
+            padding:.9rem 2.2rem; border-radius:10px;
+            font-weight:800; font-size:1rem; text-decoration:none;
+            display:inline-flex; align-items:center; gap:.55rem;
+            font-family:'Cairo',sans-serif; border:none; cursor:pointer;
+            transition:all .25s;
+            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+        .btn-hero-primary:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.25); }
+        .btn-hero-outline {
+            background:transparent; color:#fff;
+            padding:.9rem 2.2rem; border-radius:10px;
+            font-weight:700; font-size:1rem; text-decoration:none;
+            display:inline-flex; align-items:center; gap:.55rem;
+            font-family:'Cairo',sans-serif; cursor:pointer;
+            border:2px solid rgba(255,255,255,.45);
+            transition:all .25s;
+        }
+        .btn-hero-outline:hover { background:rgba(255,255,255,.1); border-color:#fff; }
+
+        /* ==============================
+           SECTION BASE
+        ============================== */
+        .section { padding:5.5rem 2rem; }
+        .section-header { text-align:center; margin-bottom:3.5rem; }
+        .section-tag {
+            display:inline-block;
+            background:linear-gradient(135deg,#dff4ed,#d0eef9);
+            color:var(--primary);
+            padding:.38rem 1.1rem; border-radius:50px;
+            font-size:.82rem; font-weight:700; margin-bottom:.9rem;
+            letter-spacing:.3px;
+        }
+        .section-title { font-size:2.2rem; font-weight:900; color:var(--text-dark); margin-bottom:.7rem; }
+        .section-subtitle { font-size:1.02rem; color:var(--text-light); max-width:540px; margin:0 auto; line-height:1.85; }
+
+        /* ==============================
+           APPS
+        ============================== */
+        .apps-grid {
+            display:grid;
+            grid-template-columns:repeat(3, 1fr);
+            gap:1.75rem; max-width:1100px; margin:0 auto;
+        }
+        @media(max-width:900px) {
+            .apps-grid { grid-template-columns:repeat(2,1fr); }
+        }
+        @media(max-width:580px) {
+            .apps-grid { grid-template-columns:1fr; }
+        }
+        .app-card {
+            background:var(--bg-card); border-radius:18px;
+            padding:2rem 1.75rem 1.75rem;
+            border:1px solid var(--border);
+            box-shadow:var(--shadow);
+            transition:all .35s; position:relative; overflow:hidden;
+            display:flex; flex-direction:column;
+        }
+        .app-card-bar {
+            position:absolute; top:0; right:0; left:0; height:4px;
+            border-radius:18px 18px 0 0;
+        }
+        .bar-blue   { background:linear-gradient(90deg,#0d4f6e,#1a9fc7); }
+        .bar-green  { background:linear-gradient(90deg,#1a7a5e,#2ca87f); }
+        .bar-orange { background:linear-gradient(90deg,#c97a0d,#f0a500); }
+        .bar-purple { background:linear-gradient(90deg,#5c2d9a,#9b59b6); }
+        .bar-teal   { background:linear-gradient(90deg,#0d6e6e,#17a2b8); }
+
+        .app-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:#c8e8f5; }
+
+        .app-num {
+            position:absolute; top:1.3rem; left:1.5rem;
+            font-size:.72rem; font-weight:800; color:var(--text-light);
+            opacity:.35; letter-spacing:.5px;
+        }
+        .app-icon {
+            width:64px; height:64px; border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.9rem; margin-bottom:1.25rem; margin-top:.3rem;
+        }
+        .ic-1 { background:#e8f4fd; color:#0d6e9a; }
+        .ic-2 { background:#e8f9f2; color:#1a7a5e; }
+        .ic-3 { background:#fef4e4; color:#c97a0d; }
+        .ic-4 { background:#f3ecfd; color:#5c2d9a; }
+        .ic-5 { background:#e0f7f7; color:#0d6e6e; }
+
+        .app-name { font-size:1.15rem; font-weight:800; color:var(--text-dark); margin-bottom:.55rem; }
+        .app-desc { font-size:.875rem; color:var(--text-light); line-height:1.85; margin-bottom:1.25rem; }
+        .app-tags { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:1.3rem; }
+        .app-tag {
+            background:#f0f7fa; color:var(--text-medium);
+            padding:.22rem .75rem; border-radius:50px;
+            font-size:.73rem; font-weight:600;
+        }
+        .app-desc { flex:1; }
+
+        .app-card-footer {
+            display:flex; gap:.7rem; align-items:center;
+            padding-top:1.1rem; margin-top:.5rem;
+            border-top:1px solid var(--border);
+        }
+        .btn-trial {
+            display:inline-flex; align-items:center; gap:.4rem;
+            background:linear-gradient(135deg,var(--primary),var(--primary-light));
+            color:#fff; padding:.55rem 1.1rem; border-radius:8px;
+            font-weight:700; font-size:.82rem; text-decoration:none;
+            font-family:'Cairo',sans-serif; white-space:nowrap;
+            transition:all .25s; box-shadow:0 2px 8px rgba(13,79,110,.2);
+        }
+        .btn-trial:hover { opacity:.88; transform:translateY(-2px); box-shadow:0 5px 15px rgba(13,79,110,.3); }
+        .app-btn {
+            display:inline-flex; align-items:center; gap:.4rem;
+            color:var(--text-light); font-weight:600; font-size:.82rem;
+            text-decoration:none; transition:all .2s;
+            border:1px solid var(--border); background:#fff;
+            padding:.55rem 1rem; border-radius:8px;
+            cursor:pointer; font-family:'Cairo',sans-serif; white-space:nowrap;
+        }
+        .app-btn:hover { color:var(--primary); border-color:#c8e8f5; background:#f0f8fd; }
+
+        /* ==============================
+           STATS BAR
+        ============================== */
+        .stats-bar {
+            background:linear-gradient(135deg,var(--primary) 0%,#0d6e8a 50%,var(--accent) 100%);
+            color:#fff; padding:3.5rem 2rem;
+        }
+        .stats-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+            gap:2rem; max-width:900px; margin:0 auto; text-align:center;
+        }
+        .stat-item { border-right:1px solid rgba(255,255,255,.18); padding:0 1rem; }
+        .stat-item:last-child { border-right:none; }
+        .stat-num { font-size:3rem; font-weight:900; line-height:1; margin-bottom:.35rem; }
+        .stat-label { font-size:.9rem; opacity:.82; }
+
+        /* ==============================
+           FEATURES
+        ============================== */
+        .features-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+            gap:1.5rem; max-width:1100px; margin:0 auto;
+        }
+        .feat-card {
+            background:#fff; border-radius:14px; padding:1.6rem;
+            border:1px solid var(--border); display:flex; gap:1rem; align-items:flex-start;
+            transition:all .3s;
+        }
+        .feat-card:hover { box-shadow:var(--shadow-lg); border-color:#c8e8f5; transform:translateY(-3px); }
+        .feat-icon {
+            width:48px; height:48px; min-width:48px; border-radius:12px;
+            background:linear-gradient(135deg,#e8f4fd,#d0eef9);
+            display:flex; align-items:center; justify-content:center;
+            color:var(--primary-light); font-size:1.2rem;
+        }
+        .feat-text h4 { font-size:.98rem; font-weight:700; color:var(--text-dark); margin-bottom:.35rem; }
+        .feat-text p  { font-size:.845rem; color:var(--text-light); line-height:1.75; }
+
+        /* ==============================
+           FAQ / CHATBOT
+        ============================== */
+        .faq-section { background:#f0f8fb; }
+        .faq-wrap { max-width:740px; margin:0 auto; }
+        .faq-item {
+            background:#fff; border-radius:12px; border:1px solid var(--border);
+            margin-bottom:.9rem; overflow:hidden;
+            box-shadow:0 2px 6px rgba(13,79,110,.05);
+        }
+        .faq-q {
+            padding:1.2rem 1.5rem; display:flex; justify-content:space-between; align-items:center;
+            cursor:pointer; font-weight:700; font-size:.92rem; color:var(--text-dark);
+            transition:background .2s; gap:1rem;
+        }
+        .faq-q:hover { background:#f7fbfc; }
+        .faq-q i { color:var(--primary-light); transition:transform .3s; flex-shrink:0; }
+        .faq-q.open i { transform:rotate(180deg); }
+        .faq-a {
+            max-height:0; overflow:hidden; padding:0 1.5rem;
+            font-size:.875rem; color:var(--text-light); line-height:1.85;
+            transition:max-height .4s ease, padding .3s;
+        }
+        .faq-a.open { max-height:250px; padding:0 1.5rem 1.25rem; }
+
+        .faq-cta { text-align:center; margin-top:2.5rem; }
+        .btn-wa {
+            display:inline-flex; align-items:center; gap:.75rem;
+            background:#25d366; color:#fff;
+            padding:1rem 2.5rem; border-radius:12px;
+            font-weight:800; font-size:1rem; text-decoration:none;
+            font-family:'Cairo',sans-serif;
+            box-shadow:0 4px 20px rgba(37,211,102,.35);
+            transition:all .25s;
+        }
+        .btn-wa:hover { background:#1fad57; transform:translateY(-3px); box-shadow:0 8px 30px rgba(37,211,102,.45); }
+        .btn-wa i { font-size:1.3rem; }
+
+        /* ==============================
+           CONTACT
+        ============================== */
+        .contact-section { background:#fff; }
+        .contact-grid {
+            display:grid; grid-template-columns:1fr 1fr;
+            gap:3rem; max-width:980px; margin:0 auto; align-items:start;
+        }
+        .contact-info h3 { font-size:1.75rem; font-weight:800; color:var(--text-dark); margin-bottom:.9rem; }
+        .contact-info > p { color:var(--text-light); line-height:1.85; margin-bottom:2rem; font-size:.95rem; }
+        .contact-items { display:flex; flex-direction:column; gap:.85rem; }
+        .contact-item {
+            display:flex; align-items:center; gap:1rem;
+            padding:.95rem 1.25rem; background:#f7fbfc;
+            border-radius:12px; border:1px solid var(--border);
+            text-decoration:none; color:var(--text-dark); transition:all .2s;
+        }
+        .contact-item:hover { background:#e8f4fd; border-color:#bfdbfe; transform:translateX(-3px); }
+        .ci-icon {
+            width:42px; height:42px; border-radius:10px;
+            display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+        }
+        .ci-wa    { background:#dcfce7; color:#16a34a; }
+        .ci-email { background:#dbeafe; color:var(--primary-light); }
+        .ci-label { font-size:.72rem; color:var(--text-light); }
+        .ci-value { font-size:.93rem; font-weight:700; }
+
+        .contact-form {
+            background:#f7fbfc; border-radius:18px;
+            padding:2.25rem; border:1px solid var(--border);
+        }
+        .form-title { font-size:1.1rem; font-weight:800; color:var(--text-dark); margin-bottom:1.5rem; }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .form-group { margin-bottom:1.15rem; }
+        .form-group label { display:block; font-size:.8rem; font-weight:700; color:var(--text-dark); margin-bottom:.45rem; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width:100%; padding:.72rem 1rem;
+            border:1px solid var(--border); border-radius:9px;
+            font-family:'Cairo',sans-serif; font-size:.875rem; color:var(--text-dark);
+            background:#fff; outline:none; transition:border-color .2s, box-shadow .2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color:var(--primary-light);
+            box-shadow:0 0 0 3px rgba(26,122,154,.1);
+        }
+        .form-group textarea { resize:vertical; min-height:95px; }
+        .btn-submit {
+            width:100%; padding:.88rem;
+            background:linear-gradient(135deg,var(--primary),var(--primary-light));
+            color:#fff; border:none; border-radius:10px;
+            font-family:'Cairo',sans-serif; font-size:1rem; font-weight:800;
+            cursor:pointer; transition:all .25s; display:flex; align-items:center; justify-content:center; gap:.6rem;
+        }
+        .btn-submit:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 6px 20px rgba(13,79,110,.3); }
+
+        /* ==============================
+           FLOATING WHATSAPP
+        ============================== */
+        .float-wa {
+            position:fixed; bottom:2rem; left:2rem; z-index:1000;
+        }
+        .float-wa-btn {
+            display:flex; align-items:center; gap:.6rem;
+            background:#25d366; color:#fff;
+            padding:.8rem 1.4rem; border-radius:50px;
+            text-decoration:none; font-weight:800; font-size:.9rem;
+            box-shadow:0 4px 22px rgba(37,211,102,.45);
+            transition:all .3s; font-family:'Cairo',sans-serif;
+            position:relative;
+        }
+        .float-wa-btn:hover { transform:scale(1.05); box-shadow:0 6px 30px rgba(37,211,102,.55); }
+        .float-wa-btn i { font-size:1.35rem; }
+        .float-pulse {
+            position:absolute; inset:-4px;
+            border-radius:50px; border:3px solid #25d366;
+            animation:pulse-ring 2.5s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0%   { transform:scale(1); opacity:.7; }
+            100% { transform:scale(1.25); opacity:0; }
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+        footer {
+            background:#071e2b; color:#94a3b8;
+            padding:3.5rem 2rem 1.5rem;
+        }
+        .footer-inner { max-width:1100px; margin:0 auto; }
+        .footer-top {
+            display:grid; grid-template-columns:1.5fr 1fr 1fr;
+            gap:3rem; margin-bottom:2.5rem;
+        }
+        .f-brand h3 { color:#fff; font-size:1.3rem; font-weight:900; margin-bottom:.6rem; }
+        .f-brand p  { font-size:.85rem; line-height:1.75; max-width:240px; }
+        .f-col h4   { color:#e2e8f0; font-weight:800; margin-bottom:1rem; font-size:.95rem; }
+        .f-col ul   { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+        .f-col a    { color:#94a3b8; text-decoration:none; font-size:.85rem; transition:color .2s; }
+        .f-col a:hover { color:#7ee8c5; }
+        .footer-bottom {
+            border-top:1px solid #0f2d3d; padding-top:1.5rem;
+            text-align:center; font-size:.8rem;
+        }
+        .footer-bottom span { color:#7ee8c5; }
+
+        /* ==============================
+           PARTNERS
+        ============================== */
+        .partners-section { background:#f0f8fb; }
+        .partners-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+            gap:1.5rem; max-width:960px; margin:0 auto;
+        }
+        .partner-card {
+            background:#fff; border-radius:16px;
+            border:1px solid var(--border);
+            padding:2rem 1.25rem;
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            text-align:center; gap:.85rem;
+            transition:all .3s; min-height:150px;
+        }
+        .partner-card:hover { box-shadow:var(--shadow-lg); border-color:#c8e8f5; transform:translateY(-4px); }
+        .partner-card.placeholder {
+            border:2px dashed #cce4ef;
+            background:#fafdff;
+        }
+        .partner-logo-wrap {
+            width:70px; height:70px; border-radius:14px;
+            background:linear-gradient(135deg,#eef6fb,#dff0f8);
+            display:flex; align-items:center; justify-content:center;
+            color:#b0cfe0; font-size:1.6rem;
+        }
+        .partner-logo-wrap img {
+            width:100%; height:100%; border-radius:14px; object-fit:contain;
+        }
+        .partner-name {
+            font-size:.9rem; font-weight:700; color:var(--text-medium);
+        }
+        .partner-coming {
+            font-size:.78rem; color:var(--text-light); letter-spacing:.2px;
+        }
+        .partners-cta {
+            text-align:center; margin-top:2.25rem;
+            font-size:.9rem; color:var(--text-light);
+        }
+        .partners-cta a {
+            color:var(--primary-light); font-weight:700; text-decoration:none;
+            border-bottom:1px dotted var(--primary-light);
+            transition:color .2s;
+        }
+        .partners-cta a:hover { color:var(--primary); }
+
+        /* ==============================
+           VISITOR COUNTER
+        ============================== */
+        .stat-num.counting { opacity:.6; }
+
+        /* ==============================
+           SCROLL REVEAL
+        ============================== */
+        .reveal {
+            opacity:0; transform:translateY(24px);
+            transition:opacity .6s ease, transform .6s ease;
+        }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        /* Tablet */
+        @media(max-width:1024px) {
+            .apps-grid { grid-template-columns:repeat(2,1fr); max-width:700px; }
+            .features-grid { grid-template-columns:repeat(2,1fr); }
+            .footer-top { grid-template-columns:1fr 1fr; gap:2rem; }
+            .contact-grid { grid-template-columns:1fr; }
+        }
+
+        /* Mobile large */
+        @media(max-width:768px) {
+            nav { padding:0 1.2rem; }
+            .nav-links { display:none; }
+            .nav-logo-text { font-size:1rem; }
+
+            .hero { min-height:auto; padding:0; }
+            .hero-content { padding:4rem 1.25rem 8rem; }
+            .hero h1 { font-size:2rem; }
+            .hero h1 .tagline { font-size:1.05rem; }
+            .hero p { font-size:.95rem; }
+            .hero-btns { flex-direction:column; align-items:center; gap:.75rem; }
+            .btn-hero-primary, .btn-hero-outline { width:100%; max-width:280px; justify-content:center; }
+
+            .section { padding:3.5rem 1.25rem; }
+            .section-title { font-size:1.7rem; }
+            .section-subtitle { font-size:.9rem; }
+            .section-header { margin-bottom:2.5rem; }
+
+            .apps-grid { grid-template-columns:1fr; max-width:100%; }
+
+            .stats-bar { padding:2.5rem 1.25rem; }
+            .stats-grid { grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+            .stat-item { border-right:none; border-bottom:1px solid rgba(255,255,255,.15); padding-bottom:1rem; }
+            .stat-item:nth-child(2n) { border-bottom:1px solid rgba(255,255,255,.15); }
+            .stat-item:last-child, .stat-item:nth-last-child(2):nth-child(odd) { border-bottom:none; }
+            .stat-num { font-size:2.2rem; }
+
+            .features-grid { grid-template-columns:1fr; }
+            .feat-card { padding:1.25rem; }
+
+            .faq-wrap { padding:0; }
+            .faq-q { font-size:.875rem; padding:1rem 1.25rem; }
+            .faq-a { font-size:.84rem; }
+            .btn-wa { padding:.85rem 1.5rem; font-size:.9rem; }
+
+            .contact-grid { grid-template-columns:1fr; gap:1.75rem; }
+            .contact-info h3 { font-size:1.4rem; }
+            .contact-form { padding:1.5rem; }
+            .form-row { grid-template-columns:1fr; }
+            .btn-submit { font-size:.95rem; }
+
+            .footer-top { grid-template-columns:1fr; gap:1.75rem; }
+            .footer-inner { padding:0; }
+            footer { padding:2.5rem 1.25rem 1.25rem; }
+
+            .float-wa { bottom:1.25rem; left:1.25rem; }
+            .float-wa-btn { padding:.7rem 1.1rem; font-size:.82rem; }
+            .float-wa-btn i { font-size:1.15rem; }
+        }
+
+        /* Mobile small */
+        @media(max-width:420px) {
+            .hero h1 { font-size:1.7rem; }
+            .hero h1 .tagline { font-size:.95rem; }
+            .hero-badge { font-size:.75rem; padding:.38rem 1rem; }
+            .nav-logo-sub { display:none; }
+            .section-title { font-size:1.5rem; }
+            .stats-grid { grid-template-columns:1fr; }
+            .stat-item { border-bottom:1px solid rgba(255,255,255,.15) !important; }
+            .stat-item:last-child { border-bottom:none !important; }
+            .app-card-footer { flex-direction:column; gap:.5rem; }
+            .btn-trial, .app-btn { width:100%; justify-content:center; }
+            .contact-item { padding:.75rem 1rem; }
+            .ci-value { font-size:.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==============================
+     NAVBAR
+============================== -->
+<nav>
+    <a href="#" class="nav-logo">
+        <div class="nav-logo-icon"><i class="fas fa-water"></i></div>
+        <div>
+            <div class="nav-logo-text">Badriya Island</div>
+            <div class="nav-logo-sub">جزيرة بدرية</div>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#apps">تطبيقاتنا</a></li>
+        <li><a href="#features">مميزاتنا</a></li>
+        <li><a href="#partners">شركاؤنا</a></li>
+        <li><a href="#faq">أسئلة شائعة</a></li>
+        <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+    <!-- Mobile only CTA -->
+    <a href="https://wa.me/966575182960" class="nav-mobile-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</nav>
+
+<!-- ==============================
+     HERO
+============================== -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            حلول تقنية ذكية لإدارة أعمالك
+        </div>
+        <h1>
+            <span class="brand">Badriya Island</span>
+            <span class="tagline">نحوّل أعمالك إلى تجربة رقمية متميزة</span>
+        </h1>
+        <p>
+            نقدم تطبيقات برمجية متكاملة وذكية مصممة لتلبية احتياجات القطاعات المختلفة،
+            بكفاءة عالية وواجهات سهلة الاستخدام.
+        </p>
+        <div class="hero-btns">
+            <a href="#apps" class="btn-hero-primary">
+                <i class="fas fa-th-large"></i> استعرض التطبيقات
+            </a>
+            <a href="https://wa.me/966575182960?text=مرحباً، أريد الاستفسار عن تطبيقاتكم"
+               class="btn-hero-outline" target="_blank">
+                <i class="fab fa-whatsapp"></i> تواصل معنا
+            </a>
+        </div>
+    </div>
+
+    <!-- Wave SVG -->
+    <div class="hero-waves">
+        <svg class="wave1" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#f7fbfc" fill-opacity="1"
+                d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+        </svg>
+        <svg class="wave2" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="top:10px">
+            <path fill="#f7fbfc" fill-opacity=".4"
+                d="M0,60 C480,20 960,80 1440,40 L1440,80 L0,80 Z"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ==============================
+     APPS
+============================== -->
+<section class="section" id="apps">
+    <div class="section-header">
+        <div class="section-tag">تطبيقاتنا</div>
+        <h2 class="section-title">حلول برمجية لكل قطاع</h2>
+        <p class="section-subtitle">خمسة تطبيقات متخصصة تغطي أهم المجالات التي تحتاج إلى أتمتة وإدارة ذكية</p>
+    </div>
+    <div class="apps-grid">
+
+        <!-- App 1 -->
+        <div class="app-card reveal">
+            <div class="app-card-bar bar-blue"></div>
+            <span class="app-num">01</span>
+            <div class="app-icon ic-1"><i class="fas fa-hospital-alt"></i></div>
+            <h3 class="app-name">إدارة المستودعات الطبية</h3>
+            <p class="app-desc">
+                نظام متكامل لإدارة مخزون الأدوية والمستلزمات الطبية في المراكز الصحية
+                والمستشفيات، مع تتبع دقيق لتواريخ الانتهاء وتنبيهات النفاد الفوري.
+            </p>
+            <div class="app-tags">
+                <span class="app-tag">المستشفيات</span>
+                <span class="app-tag">المراكز الصحية</span>
+                <span class="app-tag">الصيدليات</span>
+            </div>
+            <div class="app-card-footer">
+                <a href="https://reds2030.free.nf/dashboard/index.php" class="btn-trial" target="_blank">
+                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                </a>
+                <a href="https://wa.me/966575182960?text=أريد الاستفسار عن تطبيق إدارة المستودعات الطبية"
+                   class="app-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> استفسار
+                </a>
+            </div>
+        </div>
+
+        <!-- App 2 -->
+        <div class="app-card reveal">
+            <div class="app-card-bar bar-green"></div>
+            <span class="app-num">02</span>
+            <div class="app-icon ic-2"><i class="fas fa-user-shield"></i></div>
+            <h3 class="app-name">نظام إدارة ورقابة الأمن</h3>
+            <p class="app-desc">
+                حل ذكي لمتابعة ورقابة فرق الأمن والحراسة في أماكن الدوام، مع إدارة
+                الجداول الزمنية وتسجيل التقارير الآنية والتنبيهات الفورية.
+            </p>
+            <div class="app-tags">
+                <span class="app-tag">الشركات</span>
+                <span class="app-tag">المجمعات التجارية</span>
+                <span class="app-tag">المؤسسات</span>
+            </div>
+            <div class="app-card-footer">
+                <a href="https://desire.free.nf/employee.html" class="btn-trial" target="_blank">
+                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                </a>
+                <a href="https://wa.me/966575182960?text=أريد الاستفسار عن نظام إدارة الأمن والحراسة"
+                   class="app-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> استفسار
+                </a>
+            </div>
+        </div>
+
+        <!-- App 3 -->
+        <div class="app-card reveal">
+            <div class="app-card-bar bar-orange"></div>
+            <span class="app-num">03</span>
+            <div class="app-icon ic-3"><i class="fas fa-utensils"></i></div>
+            <h3 class="app-name">مدير المطاعم والكافيهات</h3>
+            <p class="app-desc">
+                نظام شامل يغطي إدارة الطلبات والمخزون والفواتير وإدارة الموظفين،
+                مع تقارير تفصيلية للمبيعات اليومية وتحليل الأداء.
+            </p>
+            <div class="app-tags">
+                <span class="app-tag">المطاعم</span>
+                <span class="app-tag">الكافيهات</span>
+                <span class="app-tag">الكافيتيريات</span>
+            </div>
+            <div class="app-card-footer">
+                <a href="https://res2030.free.nf/login.php" class="btn-trial" target="_blank">
+                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                </a>
+                <a href="https://wa.me/966575182960?text=أريد الاستفسار عن تطبيق مدير المطاعم والكافيهات"
+                   class="app-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> استفسار
+                </a>
+            </div>
+        </div>
+
+        <!-- App 4 -->
+        <div class="app-card reveal">
+            <div class="app-card-bar bar-purple"></div>
+            <span class="app-num">04</span>
+            <div class="app-icon ic-4"><i class="fas fa-balance-scale"></i></div>
+            <h3 class="app-name">مدير مكاتب المحاماة الذكي</h3>
+            <p class="app-desc">
+                نظام إدارة متكامل ومتخصص لمكاتب المحاماة، يشمل إدارة القضايا والموكلين
+                والجلسات والمواعيد والفواتير بكل سهولة واحترافية.
+            </p>
+            <div class="app-tags">
+                <span class="app-tag">مكاتب المحاماة</span>
+                <span class="app-tag">المستشارون القانونيون</span>
+            </div>
+            <div class="app-card-footer">
+                <a href="http://lawyer2030.wuaze.com/login.php" class="btn-trial" target="_blank">
+                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                </a>
+                <a href="https://wa.me/966575182960?text=أريد الاستفسار عن تطبيق مدير مكاتب المحاماة"
+                   class="app-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> استفسار
+                </a>
+            </div>
+        </div>
+
+        <!-- App 5 -->
+        <div class="app-card reveal">
+            <div class="app-card-bar bar-teal"></div>
+            <span class="app-num">05</span>
+            <div class="app-icon ic-5"><i class="fas fa-building"></i></div>
+            <h3 class="app-name">إدارة المنشآت وشئون الموظفين</h3>
+            <p class="app-desc">
+                نظام متكامل لإدارة المنشآت وشئون الموظفين، يشمل متابعة الحضور والغياب
+                وإدارة الرواتب والإجازات وتقييم الأداء بكل سهولة ودقة.
+            </p>
+            <div class="app-tags">
+                <span class="app-tag">الشركات</span>
+                <span class="app-tag">المؤسسات الحكومية</span>
+                <span class="app-tag">الموارد البشرية</span>
+            </div>
+            <div class="app-card-footer">
+                <a href="https://nsricloud.wuaze.com/login.php" class="btn-trial" target="_blank">
+                    <i class="fas fa-play-circle"></i> جرّب مجاناً
+                </a>
+                <a href="https://wa.me/966575182960?text=أريد الاستفسار عن تطبيق إدارة المنشآت وشئون الموظفين"
+                   class="app-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> استفسار
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==============================
+     STATS BAR
+============================== -->
+<div class="stats-bar">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">تطبيق متخصص</div>
+        </div>
+        <div class="stat-item">
+            <!-- غيّر الرقم أدناه عند زيادة عدد عملائك -->
+            <div class="stat-num" id="customer-count">50+</div>
+            <div class="stat-label">عميل راضٍ</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" id="visitor-count">...</div>
+            <div class="stat-label">زائر للموقع</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">رضا العملاء</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">دعم فني متواصل</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">إمكانية التخصيص</div>
+        </div>
+    </div>
+</div>
+
+<!-- ==============================
+     FEATURES
+============================== -->
+<section class="section" id="features" style="background:#fff;">
+    <div class="section-header">
+        <div class="section-tag">لماذا نحن؟</div>
+        <h2 class="section-title">مميزات تجعلنا الخيار الأفضل</h2>
+        <p class="section-subtitle">نؤمن بأن التكنولوجيا يجب أن تكون سهلة وفعّالة ومتاحة للجميع</p>
+    </div>
+    <div class="features-grid">
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="feat-text">
+                <h4>سهولة الاستخدام</h4>
+                <p>واجهات مستخدم بسيطة وبديهية لا تحتاج إلى تدريب مكثف</p>
+            </div>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="feat-text">
+                <h4>أمان وحماية تامة</h4>
+                <p>بياناتك محمية بأعلى معايير الأمان والتشفير الحديث</p>
+            </div>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="feat-text">
+                <h4>تقارير وإحصائيات ذكية</h4>
+                <p>احصل على بيانات لحظية تساعدك على اتخاذ قرارات صائبة</p>
+            </div>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-sliders-h"></i></div>
+            <div class="feat-text">
+                <h4>قابل للتخصيص الكامل</h4>
+                <p>نعدّل التطبيق ليتناسب تماماً مع احتياجات عملك الخاصة</p>
+            </div>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-cloud"></i></div>
+            <div class="feat-text">
+                <h4>سحابي ومتزامن</h4>
+                <p>استخدم التطبيق من أي مكان وأي جهاز في أي وقت</p>
+            </div>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon"><i class="fas fa-headset"></i></div>
+            <div class="feat-text">
+                <h4>دعم فني سريع</h4>
+                <p>فريق دعم متخصص جاهز للمساعدة على مدار الساعة</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     PARTNERS
+============================== -->
+<!--
+    ═══════════════════════════════════════════════════════
+    كيفية إضافة شريك حقيقي:
+    انسخ الكود أدناه وألصقه داخل partners-grid
+    ثم أبدل رابط الصورة والاسم:
+
+    <div class="partner-card reveal">
+        <div class="partner-logo-wrap">
+            <img src="شعار-الشريك.png" alt="اسم الشريك">
+        </div>
+        <div class="partner-name">اسم الشركة أو المؤسسة</div>
+    </div>
+
+    ═══════════════════════════════════════════════════════
+-->
+<section class="section partners-section" id="partners">
+    <div class="section-header">
+        <div class="section-tag">شركاؤنا</div>
+        <h2 class="section-title">شركاؤنا في النجاح</h2>
+        <p class="section-subtitle">نفخر بشراكتنا مع مؤسسات وشركات رائدة تثق في حلولنا التقنية لتطوير أعمالها</p>
+    </div>
+
+    <div class="partners-grid">
+
+        <!-- Partner 1 — أضف شعار الشريك هنا -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+        <!-- Partner 5 -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+        <!-- Partner 6 -->
+        <div class="partner-card placeholder reveal">
+            <div class="partner-logo-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="partner-coming">قريباً</div>
+        </div>
+
+    </div>
+
+    <div class="partners-cta">
+        هل تريد أن تكون شريكاً لنا؟
+        <a href="https://wa.me/966575182960?text=أريد الاستفسار عن الشراكة مع جزيرة بدرية" target="_blank">
+            تواصل معنا الآن
+        </a>
+    </div>
+</section>
+
+<!-- ==============================
+     FAQ
+============================== -->
+<section class="section faq-section" id="faq">
+    <div class="section-header">
+        <div class="section-tag">الأسئلة الشائعة</div>
+        <h2 class="section-title">أجوبة على تساؤلاتك</h2>
+        <p class="section-subtitle">هل لديك سؤال؟ ربما تجد إجابته هنا مباشرة</p>
+    </div>
+    <div class="faq-wrap">
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span>كيف أحصل على أحد التطبيقات؟</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">
+                تواصل معنا عبر واتساب أو البريد الإلكتروني وسيقوم فريقنا بالتواصل معك لشرح
+                خطوات الحصول على التطبيق وتفعيله وتدريب فريقك.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span>هل يمكن تخصيص التطبيق حسب احتياجات منشأتنا؟</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">
+                نعم، جميع تطبيقاتنا قابلة للتخصيص الكامل لتلائم طبيعة عملك ومتطلباتك الخاصة.
+                نعمل معك خطوة بخطوة لضمان توافق التطبيق مع بيئة عملك.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span>ما أنظمة التشغيل المدعومة؟</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">
+                تطبيقاتنا تعمل على أنظمة Android وiOS للجوال، وتدعم المتصفحات الحديثة
+                على أجهزة الكمبيوتر والأجهزة اللوحية.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span>هل هناك دعم فني بعد الاشتراك؟</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">
+                بالطبع! نقدم دعماً فنياً متواصلاً لجميع عملائنا. يمكنك التواصل مع
+                فريق الدعم في أي وقت عبر واتساب أو البريد الإلكتروني.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span>كيف تُحمى بيانات منشأتنا؟</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">
+                نستخدم أحدث تقنيات التشفير والحماية. بياناتك ملكك وحدك ولا يمكن
+                الوصول إليها من أي طرف آخر. نضمن سرية ومتانة بياناتك بالكامل.
+            </div>
+        </div>
+
+        <div class="faq-cta">
+            <p style="color:var(--text-light);margin-bottom:1rem;font-size:.95rem;">
+                لم تجد إجابة لسؤالك؟
+            </p>
+            <a href="https://wa.me/966575182960?text=لدي استفسار عن تطبيقاتكم"
+               class="btn-wa" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                تحدث معنا مباشرة على الواتساب
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     CONTACT
+============================== -->
+<section class="section contact-section" id="contact">
+    <div class="section-header">
+        <div class="section-tag">تواصل معنا</div>
+        <h2 class="section-title">نحن هنا لمساعدتك</h2>
+        <p class="section-subtitle">تواصل معنا الآن واحصل على استشارة مجانية بدون أي التزام</p>
+    </div>
+    <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info">
+            <h3>ابدأ رحلتك الرقمية معنا اليوم</h3>
+            <p>فريقنا جاهز للإجابة على جميع استفساراتك وتقديم أفضل الحلول التقنية لتطوير عملك</p>
+            <div class="contact-items">
+                <a href="https://wa.me/966575182960" class="contact-item" target="_blank">
+                    <div class="ci-icon ci-wa"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <div class="ci-label">واتساب</div>
+                        <div class="ci-value">0575182960</div>
+                    </div>
+                </a>
+                <a href="mailto:abubshaar@gmail.com" class="contact-item">
+                    <div class="ci-icon ci-email"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="ci-label">البريد الإلكتروني</div>
+                        <div class="ci-value">abubshaar@gmail.com</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form">
+            <div class="form-title">أرسل لنا رسالة</div>
+            <form onsubmit="sendForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="f-name" placeholder="أدخل اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الجوال</label>
+                        <input type="tel" id="f-phone" placeholder="05XXXXXXXX">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>التطبيق المهتم به</label>
+                    <select id="f-app">
+                        <option value="">اختر التطبيق</option>
+                        <option>إدارة المستودعات الطبية</option>
+                        <option>نظام إدارة ورقابة الأمن</option>
+                        <option>مدير المطاعم والكافيهات</option>
+                        <option>مدير مكاتب المحاماة الذكي</option>
+                        <option>استفسار عام</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>رسالتك</label>
+                    <textarea id="f-msg" placeholder="اكتب استفسارك أو طلبك هنا..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> إرسال عبر الواتساب
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+============================== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="f-brand">
+                <h3>🌊 Badriya Island</h3>
+                <p>نقدم حلولاً برمجية ذكية ومتكاملة لتطوير وأتمتة الأعمال في مختلف القطاعات</p>
+            </div>
+            <div class="f-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#apps">تطبيقاتنا</a></li>
+                    <li><a href="#features">مميزاتنا</a></li>
+                    <li><a href="#partners">شركاؤنا</a></li>
+                    <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>تواصل معنا</h4>
+                <ul>
+                    <li><a href="https://wa.me/966575182960">واتساب: 0575182960</a></li>
+                    <li><a href="mailto:abubshaar@gmail.com">abubshaar@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 <span>Badriya Island</span> — جميع الحقوق محفوظة
+        </div>
+    </div>
+</footer>
+
+<!-- ==============================
+     FLOATING WHATSAPP
+============================== -->
+<div class="float-wa">
+    <a href="https://wa.me/966575182960?text=مرحباً، أريد الاستفسار عن تطبيقاتكم"
+       class="float-wa-btn" target="_blank">
+        <span class="float-pulse"></span>
+        <i class="fab fa-whatsapp"></i> تحدث معنا
+    </a>
+</div>
+
+<!-- ==============================
+     SCRIPTS
+============================== -->
+<script>
+    /* FAQ accordion */
+    function toggleFAQ(el) {
+        const ans = el.nextElementSibling;
+        const isOpen = ans.classList.contains('open');
+        document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+        if (!isOpen) { ans.classList.add('open'); el.classList.add('open'); }
+    }
+
+    /* Contact form → WhatsApp */
+    function sendForm(e) {
+        e.preventDefault();
+        const name  = document.getElementById('f-name').value.trim();
+        const phone = document.getElementById('f-phone').value.trim();
+        const app   = document.getElementById('f-app').value;
+        const msg   = document.getElementById('f-msg').value.trim();
+        if (!name) { alert('الرجاء إدخال اسمك'); return; }
+        const text = encodeURIComponent(
+            `مرحباً، أنا ${name}\n` +
+            (phone ? `رقمي: ${phone}\n` : '') +
+            (app   ? `أريد الاستفسار عن: ${app}\n` : '') +
+            (msg   ? `الرسالة: ${msg}` : '')
+        );
+        window.open(`https://wa.me/966575182960?text=${text}`, '_blank');
+    }
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Show all reveal elements after 1s as fallback */
+    setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }, 800);
+
+    /* Smooth scroll for nav links */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    /* ── Visitor counter ──
+       يستخدم CounterAPI (مجاني) لحساب الزوار الحقيقيين عبر جميع الأجهزة.
+       إذا فشل الاتصال يعمل محلياً عبر localStorage.
+    */
+    (function() {
+        const el = document.getElementById('visitor-count');
+        if (!el) return;
+
+        function displayCount(n) {
+            el.textContent = Number(n).toLocaleString('ar-SA') + '+';
+        }
+
+        // محاولة جلب العداد من CounterAPI
+        fetch('https://api.countapi.xyz/hit/badriya-island/visits')
+            .then(r => r.json())
+            .then(data => {
+                const val = data && data.value ? data.value : null;
+                if (val) {
+                    displayCount(val);
+                    localStorage.setItem('bi_last_count', val);
+                } else {
+                    throw new Error('no value');
+                }
+            })
+            .catch(() => {
+                // احتياطي: localStorage
+                const key = 'bi_visits';
+                let c = parseInt(localStorage.getItem(key) || '0') + 1;
+                localStorage.setItem(key, c);
+                // إذا كان هناك عدد محفوظ من CounterAPI سابقاً استخدمه أساساً
+                const last = parseInt(localStorage.getItem('bi_last_count') || '0');
+                displayCount(Math.max(c, last));
+            });
+    })();
+</script>
+</body>
+</html>
